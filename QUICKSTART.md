@@ -479,7 +479,7 @@ Now that setup is complete:
 
 **Still having issues?**
 
-1. **Check existing issues**: [GitHub Issues](https://github.com/yourusername/euro-trends-bmw/issues)
+1. **Check existing issues**: [GitHub Issues](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
 2. **Search documentation**: README.md, DEPLOYMENT.md, CONTRIBUTING.md
 3. **Ask for help**: Open a new issue with:
    - Operating system and version
@@ -524,4 +524,4 @@ After setup, verify:
 
 ---
 
-**Need more help? Contact: your-email@example.com**
+**Need more help? Open an issue**: [GitHub Issues](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
