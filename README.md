@@ -120,6 +120,8 @@ This platform is designed for:
 
 ## 📊 Technology Stack
 
+**For detailed architecture information, see [ARCHITECTURE.md](ARCHITECTURE.md)**
+
 ### Backend (Flask REST API)
 ```python
 Flask 2.3.2          # Web framework
@@ -147,6 +149,22 @@ plotly.js 2.27.0          // Charting engine
 
 ---
 
+## 🚀 Quick Start
+
+**For detailed setup instructions, see [QUICKSTART.md](QUICKSTART.md)**
+
+### Prerequisites
+```bash
+Python 3.13+
+Node.js 16+
+npm or yarn
+Git
+```
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
+cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
 ```
 
 ### 2️⃣ Backend Setup
@@ -409,72 +427,3 @@ For questions or issues:
 ⭐ Star this repo if you find it useful!
 
 </div>
-
-### Prerequisites
-```bash
-Python 3.13+
-Node.js 16+
-npm or yarn
-Git
-```
-
-### 1️⃣ Clone Repository
-```bash
-git clone https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
-cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
-```
-
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install --legacy-peer-deps
-npm run dev
-# Dev server starts at http://localhost:5173
-```
-
-### 3. Access Application
-Open your browser to `http://localhost:5173`
-
-## 📡 Key API Endpoints
-
-- `GET /api/status` - Health check
-- `POST /api/init` - Initialize demo data
-- `POST /api/upload` - Upload salary dataset
-- `GET /api/data/summary` - Get dataset summary
-- `GET /api/data/salaries` - Get salary data with filters
-- `POST /api/forecast` - Generate salary forecasts
-- `GET /api/charts/country-salaries` - Country salary chart
-
-## 🎨 BMW Branding
-
-The application features BMW's signature color scheme:
-- **Primary Blue**: `#003087` (BMW corporate blue)
-- **Interactive elements**: BMW-branded buttons and charts
-
-## 📁 Project Structure
-
-```
-├── backend/          # Flask REST API
-├── frontend/         # React + TypeScript UI
-├── infra/           # Docker configuration
-└── RuroTrends/      # Original analysis scripts
-```
-
-## 🛠️ Troubleshooting
-
-- **Backend not starting**: Ensure Python 3.13+ and all dependencies installed
-- **Frontend errors**: Try `npm install --legacy-peer-deps`
-- **CORS issues**: Backend includes Flask-CORS for localhost:5173
-
-## 📜 License
-
-MIT License - see LICENSE file for details.
-
-## 👥 Contributors
-
-- **ISM**: Academic research and data analysis
-- **BMW**: Corporate sponsorship and requirements
-
----
-
-**Built with ❤️ for BMW x ISM DevOps Workforce Planning**

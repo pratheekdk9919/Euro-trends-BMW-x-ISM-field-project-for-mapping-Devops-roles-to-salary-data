@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Euro Trends - BMW x ISM DevOps Salary Mapping Dashboard"
+version: 1.0.0
+date-released: 2025-01-01
+abstract: >-
+  A full-stack analytics platform for DevOps salary intelligence across European markets.
+  Developed as part of the BMW x ISM (International School of Management) field project,
+  processing 39,676+ real salary records and providing actionable insights for workforce planning.
+authors:
+  - family-names: "DK"
+    given-names: "Pratheek"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "International School of Management (ISM)"
+repository-code: "https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data"
+url: "https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data"
+keywords:
+  - DevOps
+  - Salary Analysis
+  - Machine Learning
+  - Data Visualization
+  - Workforce Planning
+  - European Market
+  - Germany
+  - BMW
+  - ISM
+  - React
+  - Flask
+  - TypeScript
+  - Python
+license: MIT
+preferred-citation:
+  type: software
+  title: "Euro Trends - BMW x ISM DevOps Salary Mapping Dashboard"
+  authors:
+    - family-names: "DK"
+      given-names: "Pratheek"
+  year: 2025
+  institution:
+    name: "BMW Group & International School of Management"

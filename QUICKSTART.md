@@ -24,12 +24,12 @@ Before starting, ensure you have:
 
 ```bash
 # Using HTTPS
-git clone https://github.com/yourusername/euro-trends-bmw.git
-cd euro-trends-bmw
+git clone https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
+cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
 
 # Or using SSH
-git clone git@github.com:yourusername/euro-trends-bmw.git
-cd euro-trends-bmw
+git clone git@github.com:pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
+cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
 ```
 
 ### Step 2: Backend Setup (Flask API)
