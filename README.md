@@ -366,8 +366,8 @@ Git
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone <repository-url>
-cd "Euro trends BMW x ISM field project for mapping Devops roles across globe"
+git clone https://github.com/PratheekDK/euro-trends-bmw.git
+cd euro-trends-bmw
 ```
 
 ### 2. Frontend Setup
