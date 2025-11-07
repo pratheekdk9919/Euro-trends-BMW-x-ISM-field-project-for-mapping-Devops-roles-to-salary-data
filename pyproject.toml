@@ -11,10 +11,10 @@ requires-python = ">=3.11"
 license = {text = "MIT"}
 keywords = ["devops", "salary", "analytics", "machine-learning", "bmw", "ism", "germany"]
 authors = [
-  {name = "Pratheek DK", email = ""}
+  {name = "Pratheek DK"}
 ]
 maintainers = [
-  {name = "Pratheek DK", email = ""}
+  {name = "Pratheek DK"}
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

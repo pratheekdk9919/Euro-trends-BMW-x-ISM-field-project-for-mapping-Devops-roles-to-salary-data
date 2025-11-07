@@ -17,7 +17,6 @@ setup(
     name="euro-trends-bmw-ism",
     version="1.0.0",
     author="Pratheek DK",
-    author_email="",
     description="A full-stack analytics platform for DevOps salary intelligence across European markets",
     long_description=long_description,
     long_description_content_type="text/markdown",
