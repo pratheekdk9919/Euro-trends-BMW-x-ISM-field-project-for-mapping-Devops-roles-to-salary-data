@@ -1,11 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 💬 Discussions
-    url: https://github.com/yourusername/euro-trends-bmw/discussions
-    about: Ask questions and discuss ideas with the community
-  - name: 📧 Email Support
-    url: mailto:your-email@example.com
-    about: Contact the maintainers directly
+  - name: 💬 GitHub Issues
+    url: https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues
+    about: Report bugs or request features
   - name: 📖 Documentation
-    url: https://github.com/yourusername/euro-trends-bmw#readme
+    url: https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data#readme
     about: Read the full documentation
