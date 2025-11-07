@@ -9,9 +9,18 @@ import os
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-# Read requirements
-with open("backend/requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
+# Define requirements directly for better compatibility
+requirements = [
+    "Flask>=2.3.2",
+    "Flask-CORS>=4.0.0",
+    "python-dotenv>=1.0.0",
+    "pytest>=7.4.0",
+    "pandas>=2.3.0",
+    "numpy>=2.3.1",
+    "plotly>=6.2.0",
+    "scikit-learn>=1.7.0",
+    "openpyxl>=3.1.5",
+]
 
 setup(
     name="euro-trends-bmw-ism",
