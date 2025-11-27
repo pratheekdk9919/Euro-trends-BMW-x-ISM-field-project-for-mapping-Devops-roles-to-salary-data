@@ -48,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BMW branding (color: #003087)
 
 #### Data Processing
-- 39,676 salary records from BMW dataset
+- 39,676 salary records (synthetically generated using real metrics)
 - 25+ data fields per record
 - Economic indicators for 15+ countries
 - Legal/cultural data for European markets
@@ -128,4 +128,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-**For detailed commit history, see [GitHub Commits](https://github.com/yourusername/euro-trends-bmw/commits/main)**
+**For detailed commit history, see [GitHub Commits](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/commits/main)**
