@@ -1,4 +1,6 @@
-﻿# 🚗 Euro Trends - BMW x ISM DevOps Salary Mapping Dashboard
+# 🚗 Mapping DevOps Roles to Salary Data in Germany, Hungary, Poland and India
+
+## BMW x ISM Field Project Dashboard
 
 <div align="center">
 
@@ -12,12 +14,40 @@
 ![Code Quality](https://img.shields.io/badge/Code%20Quality-Professional-brightgreen?style=for-the-badge)
 ![German Market](https://img.shields.io/badge/Focus-German%20Market-red?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGQ0UwMCIvPjwvc3ZnPg==)
 
-**A full-stack analytics platform for DevOps salary intelligence across European markets**  
+**A full-stack analytics platform for DevOps salary intelligence across European and Asian markets**  
 *Entwickelt in Zusammenarbeit mit BMW Group und International School of Management*
 
 [Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-technology-stack) • [API Docs](#-api-endpoints) • [Deployment](#-deployment-options)
 
 </div>
+
+---
+
+## 📋 Management Summary
+
+This study provides a comprehensive analysis of salary data for DevOps roles across four critical regions: **Germany, Hungary, Poland, and India**. Given the rapidly evolving landscape of DevOps practices and increasing competition for skilled professionals, understanding regional salary dynamics is essential for effective workforce planning and management.
+
+### Research Objective
+
+The primary objective of this research is to systematically map and evaluate salary information for DevOps roles, identifying key variances and uncovering factors driving these differences. Beyond salary data alone, this study also examines critical factors such as:
+
+- 📊 **Taxation regulations** and their impact on net compensation
+- ⚖️ **Legal frameworks** governing employment
+- 💰 **Economic conditions** and market stability
+- 🌍 **Purchasing power parity** across regions
+- 📈 **Region-specific parameters** influencing employment decisions
+
+### Problem Solved
+
+By addressing these multifaceted dimensions, the study solves a critical problem: **determining where and how to effectively allocate resources to recruit and retain talent in competitive global markets**. The analysis clearly highlights specific advantages and challenges associated with hiring DevOps professionals in each region.
+
+### Benefits
+
+These insights benefit:
+- 👨‍💼 **Prospective employees** who can make informed career decisions
+- 🏢 **Employers** who gain actionable intelligence for strategically targeting their recruitment and retention efforts
+
+Ultimately, the findings support informed decision-making, optimize resource allocation, and help align organizational staffing practices with broader business goals and workforce management objectives.
 
 ---
 
@@ -105,7 +135,7 @@ This platform is designed for:
 
 ### Dataset Specifications
 - **Total Records**: 39,676 validated salary entries
-- **Geographic Coverage**: Germany, France, UK, Netherlands, Switzerland, and more
+- **Geographic Coverage**: Germany, Hungary, Poland, India, and additional European markets
 - **Data Points**: 25+ attributes per record including role, experience, skills, and compensation
 - **Time Period**: Current market data with historical trends
 - **Source**: Synthetically generated dataset crafted using real market metrics and industry benchmarks
@@ -419,6 +449,30 @@ This project demonstrates the application of data science and full-stack develop
 For questions or issues:
 - 🐛 Issues: [GitHub Issues](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
 - 📖 Repository: [GitHub Repository](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data)
+
+---
+
+## 📚 References
+
+1. AmbitionBox. (n.d.). *DevOps Salary*. Retrieved July 1, 2025, from https://www.ambitionbox.com/profile/devops-salary
+
+2. GermanTechJobs. (n.d.). *DevOps Jobs in Germany*. Retrieved July 1, 2025, from https://germantechjobs.de/en/jobs/DevOps/all
+
+3. Glassdoor. (n.d.). *DevOps Engineer Salaries in Poland*. Retrieved July 1, 2025, from https://www.glassdoor.de/Salaries/poland-devops-engineer-salary-SRCH_IL.0,6_IN193_KO7,22.htm
+
+4. Jobicy. (n.d.). *DevOps Engineer Salary in Hungary*. Retrieved July 1, 2025, from https://jobicy.com/salaries/hu/devops-engineer
+
+5. Jobicy. (n.d.). *DevOps Engineer Salary in Germany*. Retrieved July 1, 2025, from https://jobicy.com/salaries/de/devops-engineer
+
+6. Numbeo. (n.d.). *Cost of Living*. Retrieved July 1, 2025, from https://www.numbeo.com/cost-of-living/
+
+7. U.S. Bureau of Labor Statistics. (n.d.). *Consumer Price Index Frequently Asked Questions*. Retrieved July 1, 2025, from https://www.bls.gov/cpi/questions-and-answers.htm
+
+8. European Central Bank. (n.d.). *Harmonised Index of Consumer Prices (HICP)*. Retrieved July 1, 2025, from https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/hicp/more/html/index.en.html
+
+9. The World Bank. (n.d.). *Economy - World Development Indicators*. Retrieved July 1, 2025, from https://datatopics.worldbank.org/world-development-indicators/themes/economy.html
+
+10. Number Analytics. (n.d.). *Labor Regulatory Framework Guide*. Retrieved July 1, 2025, from https://www.numberanalytics.com/blog/labor-regulatory-framework-guide
 
 ---
 
