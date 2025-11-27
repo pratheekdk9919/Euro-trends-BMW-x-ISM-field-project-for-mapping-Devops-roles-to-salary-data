@@ -70,7 +70,7 @@ Euro Trends is a full-stack analytics platform designed with a modern, scalable 
 ### Backend Components
 
 #### 1. Data Processor (`data_processor.py`)
-- Loads BMW dataset from Excel
+- Loads dataset from Excel
 - Cleans and validates data
 - Handles missing values and outliers
 - Provides aggregation functions
@@ -123,7 +123,7 @@ Euro Trends is a full-stack analytics platform designed with a modern, scalable 
 Base URL: http://localhost:5000/api
 
 Data Management:
-  POST   /init               Initialize with BMW dataset
+  POST   /init               Initialize with dataset
   POST   /upload             Upload custom CSV/XLSX
   GET    /status             Check data load status
 
