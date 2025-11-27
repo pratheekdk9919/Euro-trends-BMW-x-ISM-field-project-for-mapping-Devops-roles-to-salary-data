@@ -1,4 +1,4 @@
-# 🚗 Mapping DevOps Roles to Salary Data in Germany, Hungary, Poland and India
+#  Mapping DevOps Roles to Salary Data in Germany, Hungary, Poland and India
 
 ## BMW x ISM Field Project Dashboard
 
