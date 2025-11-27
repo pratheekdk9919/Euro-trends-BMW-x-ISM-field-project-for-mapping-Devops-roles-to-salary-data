@@ -1,4 +1,6 @@
-﻿# 🚗 Euro Trends - BMW x ISM DevOps Salary Mapping Dashboard
+#  Mapping DevOps Roles to Salary Data in Germany, Hungary, Poland and India
+
+## BMW x ISM Field Project Dashboard
 
 <div align="center">
 
@@ -8,17 +10,72 @@
 ![Flask](https://img.shields.io/badge/Flask-2.3-000000?style=for-the-badge&logo=flask)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.1-3178C6?style=for-the-badge&logo=typescript)
 
-**A full-stack analytics platform for DevOps salary intelligence across European markets**
+![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+![Code Quality](https://img.shields.io/badge/Code%20Quality-Professional-brightgreen?style=for-the-badge)
+![German Market](https://img.shields.io/badge/Focus-German%20Market-red?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGQ0UwMCIvPjwvc3ZnPg==)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-technology-stack) • [API Docs](#-api-endpoints) • [Screenshots](#-screenshots)
+**A full-stack analytics platform for DevOps salary intelligence across European and Asian markets**  
+*Entwickelt in Zusammenarbeit mit BMW Group und International School of Management*
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-technology-stack) • [API Docs](#-api-endpoints) • [Deployment](#-deployment-options)
 
 </div>
 
 ---
 
+## 📋 Management Summary
+
+This study provides a comprehensive analysis of salary data for DevOps roles across four critical regions: **Germany, Hungary, Poland, and India**. Given the rapidly evolving landscape of DevOps practices and increasing competition for skilled professionals, understanding regional salary dynamics is essential for effective workforce planning and management.
+
+### Research Objective
+
+The primary objective of this research is to systematically map and evaluate salary information for DevOps roles, identifying key variances and uncovering factors driving these differences. Beyond salary data alone, this study also examines critical factors such as:
+
+- 📊 **Taxation regulations** and their impact on net compensation
+- ⚖️ **Legal frameworks** governing employment
+- 💰 **Economic conditions** and market stability
+- 🌍 **Purchasing power parity** across regions
+- 📈 **Region-specific parameters** influencing employment decisions
+
+### Problem Solved
+
+By addressing these multifaceted dimensions, the study solves a critical problem: **determining where and how to effectively allocate resources to recruit and retain talent in competitive global markets**. The analysis clearly highlights specific advantages and challenges associated with hiring DevOps professionals in each region.
+
+### Benefits
+
+These insights benefit:
+- 👨‍💼 **Prospective employees** who can make informed career decisions
+- 🏢 **Employers** who gain actionable intelligence for strategically targeting their recruitment and retention efforts
+
+Ultimately, the findings support informed decision-making, optimize resource allocation, and help align organizational staffing practices with broader business goals and workforce management objectives.
+
+---
+
+## 🌍 Deutsche Zusammenfassung / German Summary
+
+Diese Anwendung bietet eine umfassende Gehaltsanalyse und -prognose für DevOps-Rollen in Europa, entwickelt im Rahmen des BMW x ISM Feldprojekts. Die Plattform verarbeitet **39.676+ synthetische Gehaltsdatensätze**, die auf Basis realer Marktmetriken erstellt wurden, und bietet fundierte Erkenntnisse für die Personalplanung.
+
+**Kernfunktionen:**
+- 🎯 Echtzeit-Datenfilterung nach Ländern, Rollen und Team-Setups
+- 🤖 ML-gestützte 5-Jahres-Prognosen (2025-2030)
+- 📊 Interaktive Dashboards mit Plotly.js
+- 🌍 Wirtschaftliche und rechtliche Kontextinformationen für deutsche und europäische Märkte
+- 💼 Spezieller Fokus auf den deutschen DevOps-Arbeitsmarkt
+
+---
+
 ## 🎯 Project Overview
 
-This application provides comprehensive salary analysis and forecasting for DevOps roles across Europe, developed as part of the BMW x ISM (International School of Management) field project. It processes **39,676+ real salary records** and provides actionable insights for workforce planning.
+This application provides comprehensive salary analysis and forecasting for DevOps roles across Europe, developed as part of the BMW x ISM (International School of Management) field project. It processes **39,676+ synthetic salary records**, generated using real market metrics, and provides actionable insights for workforce planning.
+
+### Professional Use Cases
+
+This platform is designed for:
+- 🏢 **HR Professionals & Recruiters**: Make data-driven compensation decisions
+- 💼 **Hiring Managers**: Benchmark salaries against market standards
+- 📊 **Workforce Analysts**: Identify trends and plan budgets
+- 🎓 **Job Seekers**: Research competitive salary ranges for DevOps roles
+- 📈 **Business Leaders**: Understand European DevOps talent market dynamics
 
 ### Key Capabilities
 ✅ **Real-time data filtering** with Streamlit-inspired sidebar UI  
@@ -74,7 +131,26 @@ This application provides comprehensive salary analysis and forecasting for DevO
 
 ---
 
+## 📈 Data Quality & Methodology
+
+### Dataset Specifications
+- **Total Records**: 39,676 validated salary entries
+- **Geographic Coverage**: Germany, Hungary, Poland, India, and additional European markets
+- **Data Points**: 25+ attributes per record including role, experience, skills, and compensation
+- **Time Period**: Current market data with historical trends
+- **Source**: Synthetically generated dataset crafted using real market metrics and industry benchmarks
+
+### Analysis Methodology
+- **Machine Learning**: Random Forest regression with confidence intervals
+- **Statistical Methods**: Robust aggregation and outlier detection
+- **Validation**: Cross-validation and testing for model accuracy
+- **Updates**: Regular data refresh cycles for market relevance
+
+---
+
 ## 📊 Technology Stack
+
+**For detailed architecture information, see [ARCHITECTURE.md](ARCHITECTURE.md)**
 
 ### Backend (Flask REST API)
 ```python
@@ -97,12 +173,28 @@ plotly.js 2.27.0          // Charting engine
 ```
 
 ### Data Source
-- **BMW Data Set for WebApp.xlsx**: 39,676 records with 25+ columns
+- **Synthetic Dataset**: 39,676 records with 25+ columns, crafted using real market metrics
 - **Economic data**: GDP, cost of living, unemployment rates
 - **Legal data**: Tax rates, working hours, benefits
 
 ---
 
+## 🚀 Quick Start
+
+**For detailed setup instructions, see [QUICKSTART.md](QUICKSTART.md)**
+
+### Prerequisites
+```bash
+Python 3.13+
+Node.js 16+
+npm or yarn
+Git
+```
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
+cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
 ```
 
 ### 2️⃣ Backend Setup
@@ -132,7 +224,7 @@ npm run dev
 ### 4️⃣ Access Application
 Open browser: **http://localhost:5173**
 
-The app will auto-load the BMW dataset (39,676 records) on startup.
+The app will auto-load the dataset (39,676 records) on startup.
 
 ---
 
@@ -167,7 +259,7 @@ Euro-Trends-BMW-ISM/
 │   ├── Dockerfile.backend    # Backend container
 │   └── Dockerfile.frontend   # Frontend container
 │
-├── BMW Data Set for WebApp.xlsx  # Primary dataset
+├── BMW Data Set for WebApp.xlsx  # Primary dataset (synthetically generated)
 ├── README.md                     # This file
 ├── LICENSE                       # MIT License
 └── .gitignore                   # Git ignore rules
@@ -179,7 +271,7 @@ Euro-Trends-BMW-ISM/
 
 ### Data Management
 ```http
-POST   /api/init              # Initialize with BMW dataset
+POST   /api/init              # Initialize with dataset
 POST   /api/upload            # Upload custom CSV/XLSX
 GET    /api/status            # Check data load status
 ```
@@ -308,6 +400,8 @@ Minimum_Wage, Tax_Rate, Benefits
 
 ## 🤝 Contributing
 
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit changes (`git commit -m 'Add AmazingFeature'`)
@@ -320,31 +414,65 @@ Minimum_Wage, Tax_Rate, Benefits
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
+Copyright (c) 2025 Pratheek DK & BMW x ISM Field Project Team
+
 ---
 
 ## 👥 Authors
 
 **BMW x ISM Field Project Team**
-- Project Lead: [Your Name]
+- Project Lead: Pratheek DK
 - Institution: International School of Management (ISM)
 - Partner: BMW Group
+- Repository: [pratheekdk9919](https://github.com/pratheekdk9919)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **BMW Group** for providing the comprehensive DevOps salary dataset
-- **ISM** for academic support and guidance
-- **Open Source Community** for amazing tools (React, Flask, Plotly, scikit-learn)
+- **BMW Group** for project collaboration and supporting this research
+- **International School of Management (ISM)** for academic guidance and institutional support
+- **German Tech Industry** for insights into the European DevOps market landscape
+- **Open Source Community** for exceptional tools: React, Flask, Plotly, scikit-learn, TypeScript, and Vite
+- **European DevOps Community** for contributing to the understanding of market trends
+
+### Special Recognition
+
+This project demonstrates the application of data science and full-stack development principles to solve real-world HR and workforce planning challenges in the European tech industry, with particular focus on the German market.
+
+**Note**: The dataset used in this project was synthetically generated by the project author using real market metrics and industry benchmarks. No proprietary data was provided by external parties.
 
 ---
 
 ## 📞 Support
 
 For questions or issues:
-- 📧 Email: [your-email@example.com]
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/euro-trends-bmw/issues)
-- 📖 Docs: [Full Documentation](https://github.com/yourusername/euro-trends-bmw/wiki)
+- 🐛 Issues: [GitHub Issues](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
+- 📖 Repository: [GitHub Repository](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data)
+
+---
+
+## 📚 References
+
+1. AmbitionBox. (n.d.). *DevOps Salary*. Retrieved July 1, 2025, from https://www.ambitionbox.com/profile/devops-salary
+
+2. GermanTechJobs. (n.d.). *DevOps Jobs in Germany*. Retrieved July 1, 2025, from https://germantechjobs.de/en/jobs/DevOps/all
+
+3. Glassdoor. (n.d.). *DevOps Engineer Salaries in Poland*. Retrieved July 1, 2025, from https://www.glassdoor.de/Salaries/poland-devops-engineer-salary-SRCH_IL.0,6_IN193_KO7,22.htm
+
+4. Jobicy. (n.d.). *DevOps Engineer Salary in Hungary*. Retrieved July 1, 2025, from https://jobicy.com/salaries/hu/devops-engineer
+
+5. Jobicy. (n.d.). *DevOps Engineer Salary in Germany*. Retrieved July 1, 2025, from https://jobicy.com/salaries/de/devops-engineer
+
+6. Numbeo. (n.d.). *Cost of Living*. Retrieved July 1, 2025, from https://www.numbeo.com/cost-of-living/
+
+7. U.S. Bureau of Labor Statistics. (n.d.). *Consumer Price Index Frequently Asked Questions*. Retrieved July 1, 2025, from https://www.bls.gov/cpi/questions-and-answers.htm
+
+8. European Central Bank. (n.d.). *Harmonised Index of Consumer Prices (HICP)*. Retrieved July 1, 2025, from https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/hicp/more/html/index.en.html
+
+9. The World Bank. (n.d.). *Economy - World Development Indicators*. Retrieved July 1, 2025, from https://datatopics.worldbank.org/world-development-indicators/themes/economy.html
+
+10. Number Analytics. (n.d.). *Labor Regulatory Framework Guide*. Retrieved July 1, 2025, from https://www.numberanalytics.com/blog/labor-regulatory-framework-guide
 
 ---
 
@@ -355,72 +483,3 @@ For questions or issues:
 ⭐ Star this repo if you find it useful!
 
 </div>
-
-### Prerequisites
-```bash
-Python 3.13+
-Node.js 16+
-npm or yarn
-Git
-```
-
-### 1️⃣ Clone Repository
-```bash
-git clone https://github.com/PratheekDK/euro-trends-bmw.git
-cd euro-trends-bmw
-```
-
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install --legacy-peer-deps
-npm run dev
-# Dev server starts at http://localhost:5173
-```
-
-### 3. Access Application
-Open your browser to `http://localhost:5173`
-
-## 📡 Key API Endpoints
-
-- `GET /api/status` - Health check
-- `POST /api/init` - Initialize demo data
-- `POST /api/upload` - Upload salary dataset
-- `GET /api/data/summary` - Get dataset summary
-- `GET /api/data/salaries` - Get salary data with filters
-- `POST /api/forecast` - Generate salary forecasts
-- `GET /api/charts/country-salaries` - Country salary chart
-
-## 🎨 BMW Branding
-
-The application features BMW's signature color scheme:
-- **Primary Blue**: `#003087` (BMW corporate blue)
-- **Interactive elements**: BMW-branded buttons and charts
-
-## 📁 Project Structure
-
-```
-├── backend/          # Flask REST API
-├── frontend/         # React + TypeScript UI
-├── infra/           # Docker configuration
-└── RuroTrends/      # Original analysis scripts
-```
-
-## 🛠️ Troubleshooting
-
-- **Backend not starting**: Ensure Python 3.13+ and all dependencies installed
-- **Frontend errors**: Try `npm install --legacy-peer-deps`
-- **CORS issues**: Backend includes Flask-CORS for localhost:5173
-
-## 📜 License
-
-MIT License - see LICENSE file for details.
-
-## 👥 Contributors
-
-- **ISM**: Academic research and data analysis
-- **BMW**: Corporate sponsorship and requirements
-
----
-
-**Built with ❤️ for BMW x ISM DevOps Workforce Planning**
