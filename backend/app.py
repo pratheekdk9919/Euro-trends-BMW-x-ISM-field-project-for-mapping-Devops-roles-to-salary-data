@@ -88,10 +88,10 @@ def initialize_bmw_data():
         app_data['economic_data'] = data_processor._create_default_data()['economic_data']
         app_data['legal_data'] = data_processor._create_default_data()['legal_data']
         app_data['processed'] = True
-        print(f"✓ BMW dataset initialized with {len(bmw_data)} records")
+        print(f"[OK] BMW dataset initialized with {len(bmw_data)} records")
         return True
     else:
-        print("✗ Failed to load BMW dataset, using demo data instead")
+        print("[WARN] Failed to load BMW dataset, using demo data instead")
         default_data = data_processor._create_default_data()
         app_data['salary_data'] = default_data['salary_data']
         app_data['economic_data'] = default_data['economic_data']
