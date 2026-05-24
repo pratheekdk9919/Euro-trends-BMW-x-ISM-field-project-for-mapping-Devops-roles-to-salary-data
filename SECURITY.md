@@ -19,7 +19,10 @@ Please **do not** create a public GitHub issue for security vulnerabilities. Thi
 
 ### 2. Report Privately
 
-Send an email to: **your-email@example.com** with:
+Please report security vulnerabilities through GitHub's Security Advisory feature:
+1. Navigate to the [Security tab](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/security)
+2. Click "Report a vulnerability"
+3. Provide the following information:
 
 - **Subject**: `[SECURITY] Brief description of vulnerability`
 - **Description**: Detailed description of the vulnerability
@@ -240,12 +243,10 @@ We appreciate security researchers who help keep our project safe:
 ## 📞 Contact
 
 For security concerns:
-- **Email**: your-email@example.com
-- **GPG Key**: [Link to public key] (if available)
+- **GitHub Security**: [Report a vulnerability](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/security)
 
 For general questions:
-- **GitHub Discussions**: [Link]
-- **GitHub Issues**: [Link]
+- **GitHub Issues**: [Open an issue](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
 
 ## 📜 Disclosure Policy
 

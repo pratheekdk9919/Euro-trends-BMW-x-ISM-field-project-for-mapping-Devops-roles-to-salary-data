@@ -20,7 +20,7 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 ## 💡 How Can I Contribute?
 
 ### Reporting Bugs
-- Check if the bug has already been reported in [Issues](https://github.com/yourusername/euro-trends-bmw/issues)
+- Check if the bug has already been reported in [Issues](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
 - Include:
   - Clear description of the issue
   - Steps to reproduce
@@ -52,8 +52,8 @@ Git
 ### Local Development
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR-USERNAME/euro-trends-bmw.git
-cd euro-trends-bmw
+git clone https://github.com/YOUR-USERNAME/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data.git
+cd Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
 
 # Backend setup
 cd backend
@@ -161,8 +161,8 @@ npm test -- --coverage  # with coverage
 ## ❓ Questions?
 
 Feel free to open a discussion or reach out to maintainers:
-- GitHub Discussions: [link]
-- Email: [your-email@example.com]
+- GitHub Issues: [Open an issue](https://github.com/pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data/issues)
+- Project: BMW x ISM Field Project Team
 
 ---
 

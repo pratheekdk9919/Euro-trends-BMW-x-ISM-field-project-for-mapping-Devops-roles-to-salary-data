@@ -25,12 +25,14 @@ frontend/dist/
 frontend/build/
 
 # IDE
-.vscode/
-.vscode/.history/
 .idea/
 *.swp
 *.swo
 *~
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/.history/
 
 # Environment variables
 .env
