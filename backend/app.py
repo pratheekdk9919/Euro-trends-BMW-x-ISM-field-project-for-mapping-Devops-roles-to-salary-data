@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, send_from_directory
 from flask_cors import CORS
 import os
 import logging
@@ -390,6 +390,18 @@ def get_legal_data():
         })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+# Serve the pre-built React frontend for any non-API route.
+# The dist/ directory lives at ../frontend/dist relative to this file.
+_FRONTEND_DIST = os.path.join(os.path.dirname(__file__), '..', 'frontend', 'dist')
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_frontend(path):
+    if path and os.path.exists(os.path.join(_FRONTEND_DIST, path)):
+        return send_from_directory(_FRONTEND_DIST, path)
+    return send_from_directory(_FRONTEND_DIST, 'index.html')
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

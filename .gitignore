@@ -9,7 +9,6 @@ venv/
 .venv/
 ENV/
 *.egg-info/
-dist/
 build/
 *.log
 
@@ -20,8 +19,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Build outputs
-frontend/dist/
+# Build outputs — frontend/dist is committed so App Platform can serve it from Flask
 frontend/build/
 
 # IDE
