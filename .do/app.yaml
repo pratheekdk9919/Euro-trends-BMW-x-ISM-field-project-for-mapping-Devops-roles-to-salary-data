@@ -1,0 +1,39 @@
+name: devops-salary-dashboard
+region: fra
+
+# Backend — Flask API served by Gunicorn
+# source_dir points the buildpack at backend/ so it finds requirements.txt there
+# and ignores the root setup.py that confused it.
+services:
+  - name: backend
+    source_dir: backend
+    github:
+      repo: pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
+      branch: main
+      deploy_on_push: true
+    build_command: pip install -r requirements.txt
+    run_command: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 app:app
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xs   # 1 GB RAM — needed for pandas + sklearn startup
+    envs:
+      - key: FLASK_DEBUG
+        value: "0"
+    routes:
+      - path: /api   # App Platform routes /api/* here; Flask sees the full path
+
+# Frontend — React SPA built with Vite, served as a static site (free tier)
+# VITE_API_URL is intentionally unset so API_BASE = '' + '/api' = '/api'
+# App Platform's edge router sends /api/* to the backend service above.
+static_sites:
+  - name: frontend
+    source_dir: frontend
+    github:
+      repo: pratheekdk9919/Euro-trends-BMW-x-ISM-field-project-for-mapping-Devops-roles-to-salary-data
+      branch: main
+      deploy_on_push: true
+    build_command: npm ci && npm run build
+    output_dir: dist
+    error_document: index.html   # lets React Router handle 404s client-side
+    routes:
+      - path: /
