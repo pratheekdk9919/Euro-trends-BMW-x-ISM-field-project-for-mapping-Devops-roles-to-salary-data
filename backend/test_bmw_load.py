@@ -7,7 +7,7 @@ print(f"Exists: {os.path.exists(path)}")
 
 try:
     df = pd.read_excel(path)
-    print(f"✓ Loaded {len(df)} rows")
+    print(f"[OK] Loaded {len(df)} rows")
     print(f"\nColumn names:")
     for i, col in enumerate(df.columns, 1):
         print(f"  {i}. '{col}'")
@@ -27,11 +27,11 @@ try:
     # Filter out rows with zero salary
     processed_df = processed_df[processed_df['Salary_EUR'] > 0]
     
-    print(f"✓ Processed {len(processed_df)} valid records")
+    print(f"[OK] Processed {len(processed_df)} valid records")
     print(f"\nSample data:")
     print(processed_df.head(3))
     
 except Exception as e:
-    print(f"✗ Error: {e}")
+    print(f"[FAIL] Error: {e}")
     import traceback
     traceback.print_exc()
