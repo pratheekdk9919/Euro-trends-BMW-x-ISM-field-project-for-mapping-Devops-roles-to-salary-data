@@ -150,7 +150,7 @@ This platform is designed for:
 
 ## 📊 Technology Stack
 
-**For detailed architecture information, see [ARCHITECTURE.md](ARCHITECTURE.md)**
+**Full-stack architecture: React 18 frontend → Flask REST API → pandas/scikit-learn data layer.**
 
 ### Backend (Flask REST API)
 ```python

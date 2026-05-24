@@ -1,6 +1,25 @@
+# Build context must be the project root so the BMW dataset is accessible.
+# docker-compose sets context: ..
 FROM python:3.11-slim
+
 WORKDIR /app
-COPY . /app
+
+# Install dependencies first (cached layer)
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY backend/ .
+
+# Bundle the BMW dataset alongside app.py so _locate_bmw_dataset() finds it
+COPY ["BMW Data Set for WebApp.xlsx", "./"]
+
 EXPOSE 5000
-CMD ["python", "app.py"]
+
+# 2 workers is enough for a single Droplet; tune with WEB_CONCURRENCY env var
+CMD ["gunicorn", \
+     "--bind", "0.0.0.0:5000", \
+     "--workers", "2", \
+     "--timeout", "120", \
+     "--access-logfile", "-", \
+     "app:app"]

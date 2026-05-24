@@ -150,15 +150,15 @@ def show_overview_dashboard(data):
     
     with col1:
         country_chart = st.session_state.chart_generator.create_country_salary_chart(data)
-        st.plotly_chart(country_chart, width='stretch')
+        st.plotly_chart(country_chart, use_container_width=True)
     
     with col2:
         role_chart = st.session_state.chart_generator.create_role_salary_chart(data)
-        st.plotly_chart(role_chart, width='stretch')
+        st.plotly_chart(role_chart, use_container_width=True)
     
     # Team Setup Analysis
     team_chart = st.session_state.chart_generator.create_team_setup_chart(data)
-    st.plotly_chart(team_chart, width='stretch')
+    st.plotly_chart(team_chart, use_container_width=True)
 
 def show_salary_explorer(data):
     st.header("Interactive Salary Explorer")
@@ -168,7 +168,7 @@ def show_salary_explorer(data):
     
     with col1:
         heatmap = st.session_state.chart_generator.create_salary_heatmap(data)
-        st.plotly_chart(heatmap, width='stretch')
+        st.plotly_chart(heatmap, use_container_width=True)
     
     with col2:
         st.subheader("Salary Statistics")
@@ -190,7 +190,7 @@ def show_salary_explorer(data):
     display_columns = ['Role_Name', 'Country', 'Team_Setup', 'Salary_Min', 'Salary_Avg', 'Salary_Max']
     st.dataframe(
         display_data[display_columns],
-        width='stretch',
+        use_container_width=True,
         hide_index=True
     )
 
@@ -210,12 +210,12 @@ def show_forecast_dashboard(data):
     with col1:
         country_forecast = st.session_state.chart_generator.create_forecast_chart(
             forecast_data, 'Country')
-        st.plotly_chart(country_forecast, width='stretch')
+        st.plotly_chart(country_forecast, use_container_width=True)
     
     with col2:
         role_forecast = st.session_state.chart_generator.create_forecast_chart(
             forecast_data, 'Role')
-        st.plotly_chart(role_forecast, width='stretch')
+        st.plotly_chart(role_forecast, use_container_width=True)
     
     # Growth analysis
     st.subheader("Growth Analysis")
@@ -257,16 +257,16 @@ def show_economic_dashboard():
     with col1:
         inflation_chart = st.session_state.chart_generator.create_economic_chart(
             economic_data, 'Inflation_Rate', 'Inflation Rate by Country')
-        st.plotly_chart(inflation_chart, width='stretch')
+        st.plotly_chart(inflation_chart, use_container_width=True)
     
     with col2:
         gdp_chart = st.session_state.chart_generator.create_economic_chart(
             economic_data, 'GDP_Growth', 'GDP Growth by Country')
-        st.plotly_chart(gdp_chart, width='stretch')
+        st.plotly_chart(gdp_chart, use_container_width=True)
     
     # Economic data table
     st.subheader("Economic Indicators")
-    st.dataframe(economic_data, width='stretch', hide_index=True)
+    st.dataframe(economic_data, use_container_width=True, hide_index=True)
 
 def show_legal_cultural_dashboard():
     st.header("Legal & Cultural Context")
@@ -279,11 +279,11 @@ def show_legal_cultural_dashboard():
     
     # Sentiment chart
     sentiment_chart = st.session_state.chart_generator.create_sentiment_chart(legal_data)
-    st.plotly_chart(sentiment_chart, width='stretch')
+    st.plotly_chart(sentiment_chart, use_container_width=True)
     
     # Legal data table
     st.subheader("Legal & Cultural Information")
-    st.dataframe(legal_data, width='stretch', hide_index=True)
+    st.dataframe(legal_data, use_container_width=True, hide_index=True)
 
 if __name__ == "__main__":
     main()

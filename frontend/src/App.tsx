@@ -3,7 +3,7 @@ import axios from 'axios'
 import Plot from 'react-plotly.js'
 import './App.css'
 
-const API_BASE = 'http://localhost:5000/api'
+const API_BASE = (import.meta.env.VITE_API_URL || '') + '/api'
 
 interface SalaryData {
   Role_Name: string
@@ -86,6 +86,10 @@ export default function App() {
   const [selectedRoles, setSelectedRoles] = useState<string[]>([])
   const [selectedTeamSetups, setSelectedTeamSetups] = useState<string[]>([])
   
+  // Explorer pagination
+  const [explorerPage, setExplorerPage] = useState(1)
+  const ROWS_PER_PAGE = 50
+
   // UI state
   const [dataLoaded, setDataLoaded] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -107,12 +111,16 @@ export default function App() {
   // Initialize filters when summary loads
   useEffect(() => {
     if (summary) {
-      // Set all countries/roles/team_setups selected by default (like Streamlit)
       setSelectedCountries(summary.countries)
       setSelectedRoles(summary.roles)
       setSelectedTeamSetups(summary.team_setups)
     }
   }, [summary])
+
+  // Reset explorer page when filters change
+  useEffect(() => {
+    setExplorerPage(1)
+  }, [selectedCountries, selectedRoles, selectedTeamSetups])
 
   const checkStatus = async () => {
     try {
@@ -144,6 +152,13 @@ export default function App() {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
+
+    const MAX_FILE_BYTES = 16 * 1024 * 1024
+    if (file.size > MAX_FILE_BYTES) {
+      setError('File too large. Maximum size is 16 MB.')
+      e.target.value = ''
+      return
+    }
 
     setLoading(true)
     setError(null)
@@ -397,11 +412,16 @@ export default function App() {
   const clearAllTeamSetups = () => setSelectedTeamSetups([])
 
   const renderExplorer = () => {
+    const totalPages = Math.max(1, Math.ceil(filteredData.length / ROWS_PER_PAGE))
+    const safePage = Math.min(explorerPage, totalPages)
+    const pageData = filteredData.slice((safePage - 1) * ROWS_PER_PAGE, safePage * ROWS_PER_PAGE)
 
     return (
       <div className="explorer">
         <h2>Salary Explorer</h2>
-        <p className="info-text">Filtered by: {selectedCountries.length} countries, {selectedRoles.length} roles, {selectedTeamSetups.length} team setups ({filteredData.length} records)</p>
+        <p className="info-text">
+          {filteredData.length.toLocaleString()} records &mdash; showing {(safePage - 1) * ROWS_PER_PAGE + 1}&ndash;{Math.min(safePage * ROWS_PER_PAGE, filteredData.length)}
+        </p>
 
         <div className="table-container">
           <table className="data-table">
@@ -416,7 +436,7 @@ export default function App() {
               </tr>
             </thead>
             <tbody>
-              {filteredData.map((row, idx) => (
+              {pageData.map((row, idx) => (
                 <tr key={idx}>
                   <td>{row.Role_Name}</td>
                   <td>{row.Country}</td>
@@ -428,6 +448,25 @@ export default function App() {
               ))}
             </tbody>
           </table>
+          <div className="pagination">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              disabled={safePage === 1}
+              onClick={() => setExplorerPage(p => p - 1)}
+            >
+              ← Prev
+            </button>
+            <span className="pagination-info">Page {safePage} of {totalPages}</span>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              disabled={safePage === totalPages}
+              onClick={() => setExplorerPage(p => p + 1)}
+            >
+              Next →
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -458,30 +497,30 @@ export default function App() {
               data={[
                 {
                   x: forecastData.map(d => d.year),
-                  y: forecastData.map(d => d.predicted_salary),
+                  y: forecastData.map(d => d.lower_bound),
                   type: 'scatter',
-                  mode: 'lines+markers',
-                  name: 'Predicted Salary',
-                  line: { color: '#003087', width: 3 },
-                  marker: { size: 8 }
+                  mode: 'lines',
+                  name: 'Lower Bound',
+                  line: { color: '#003087', width: 1, dash: 'dash' }
                 },
                 {
                   x: forecastData.map(d => d.year),
                   y: forecastData.map(d => d.upper_bound),
                   type: 'scatter',
                   mode: 'lines',
-                  name: 'Upper Bound',
+                  name: 'Confidence Band',
                   line: { color: '#003087', width: 1, dash: 'dash' },
                   fill: 'tonexty',
-                  fillcolor: 'rgba(0, 48, 135, 0.2)'
+                  fillcolor: 'rgba(0, 48, 135, 0.15)'
                 },
                 {
                   x: forecastData.map(d => d.year),
-                  y: forecastData.map(d => d.lower_bound),
+                  y: forecastData.map(d => d.predicted_salary),
                   type: 'scatter',
-                  mode: 'lines',
-                  name: 'Lower Bound',
-                  line: { color: '#003087', width: 1, dash: 'dash' }
+                  mode: 'lines+markers',
+                  name: 'Predicted Salary',
+                  line: { color: '#003087', width: 3 },
+                  marker: { size: 8 }
                 }
               ]}
               layout={{
@@ -669,7 +708,12 @@ export default function App() {
         <p className="subtitle">Euro Trends × ISM Field Project</p>
       </header>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && (
+        <div className="error-banner">
+          <span>{error}</span>
+          <button type="button" className="error-dismiss" onClick={() => setError(null)}>✕</button>
+        </div>
+      )}
 
       {!dataLoaded ? (
         <div className="upload-section">

@@ -1,9 +1,13 @@
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 import os
+import logging
 import pandas as pd
 import json
 from werkzeug.utils import secure_filename
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+logger = logging.getLogger(__name__)
 
 # Import RuroTrends modules
 from data_processor import DataProcessor
@@ -36,45 +40,47 @@ app_data = {
     'processed': False
 }
 
-# BMW Dataset path
-BMW_DATASET_PATH = os.path.join(os.path.dirname(__file__), '..', 'BMW Data Set for WebApp.xlsx')
+# BMW Dataset path — env var wins; otherwise try same dir (Docker) then parent dir (local dev)
+def _locate_bmw_dataset() -> str:
+    if env := os.environ.get('BMW_DATASET_PATH'):
+        return env
+    here = os.path.dirname(__file__)
+    same_dir = os.path.join(here, 'BMW Data Set for WebApp.xlsx')
+    return same_dir if os.path.exists(same_dir) else os.path.join(here, '..', 'BMW Data Set for WebApp.xlsx')
+
+BMW_DATASET_PATH = _locate_bmw_dataset()
 
 def load_bmw_dataset():
     """Load and process BMW dataset"""
     try:
-        print(f"Loading BMW dataset from: {BMW_DATASET_PATH}")
-        
-        # Load the Excel file
+        logger.info(f"Loading BMW dataset from: {BMW_DATASET_PATH}")
+
         df = pd.read_excel(BMW_DATASET_PATH)
-        
-        print(f"Loaded {len(df)} records from BMW dataset")
-        
-        # Process and standardize the data to match expected format
+        df.columns = df.columns.str.strip()  # remove accidental leading/trailing spaces
+
+        logger.info(f"Loaded {len(df)} records from BMW dataset")
+
+        salary_col = 'salary adjusted to euro'
         processed_df = pd.DataFrame({
             'Country': df['country'].fillna('Unknown'),
-            'Role_Name': df['job_role'].fillna('Unknown'),  # Changed to Role_Name
+            'Role_Name': df['job_role'].fillna('Unknown'),
             'Experience_Level': df['level_of_experience'].fillna('Unknown'),
             'Years_of_Experience': df['years_of_experience'].fillna(0),
-            'Salary_EUR': df['salary adjusted to euro '].fillna(0),  # Note trailing space
-            'Salary_Avg_USD': df['salary adjusted to euro '].fillna(0) * 1.1,  # Approximate USD conversion
-            'Salary_Min_USD': df['salary adjusted to euro '].fillna(0) * 0.9,  # Approximate min
-            'Salary_Max_USD': df['salary adjusted to euro '].fillna(0) * 1.3,  # Approximate max
+            'Salary_EUR': df[salary_col].fillna(0),
+            'Salary_Avg_USD': df[salary_col].fillna(0) * 1.1,
+            'Salary_Min_USD': df[salary_col].fillna(0) * 0.9,
+            'Salary_Max_USD': df[salary_col].fillna(0) * 1.3,
             'Skills': df['skills'].fillna(''),
             'Location': df['location'].fillna('Unknown'),
             'Salary_Range': df['salary_range'].fillna(''),
-            'Team_Setup': 'Hybrid'  # Default value as not in dataset
+            'Team_Setup': 'Hybrid',
         })
-        
-        # Filter out rows with zero salary
+
         processed_df = processed_df[processed_df['Salary_EUR'] > 0]
-        
-        print(f"Processed {len(processed_df)} valid records")
-        
+        logger.info(f"Processed {len(processed_df)} valid records")
         return processed_df
     except Exception as e:
-        print(f"Error loading BMW dataset: {e}")
-        import traceback
-        traceback.print_exc()
+        logger.error(f"Error loading BMW dataset: {e}", exc_info=True)
         return None
 
 def initialize_bmw_data():
@@ -88,10 +94,10 @@ def initialize_bmw_data():
         app_data['economic_data'] = data_processor._create_default_data()['economic_data']
         app_data['legal_data'] = data_processor._create_default_data()['legal_data']
         app_data['processed'] = True
-        print(f"✓ BMW dataset initialized with {len(bmw_data)} records")
+        logger.info(f"BMW dataset initialized with {len(bmw_data)} records")
         return True
     else:
-        print("✗ Failed to load BMW dataset, using demo data instead")
+        logger.warning("Failed to load BMW dataset, falling back to demo data")
         default_data = data_processor._create_default_data()
         app_data['salary_data'] = default_data['salary_data']
         app_data['economic_data'] = default_data['economic_data']
@@ -100,11 +106,8 @@ def initialize_bmw_data():
         return False
 
 # Load BMW dataset on startup
-print("\n" + "="*60)
-print("INITIALIZING BACKEND WITH BMW DATASET")
-print("="*60)
+logger.info("Initializing backend with BMW dataset")
 initialize_bmw_data()
-print("="*60 + "\n")
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -385,30 +388,6 @@ def get_legal_data():
             'success': True,
             'data': result
         })
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/api/bmw-dataset', methods=['GET'])
-def get_bmw_dataset():
-    """Load and return the BMW dataset from the root folder"""
-    try:
-        dataset_path = os.path.join('..', 'BMW Data Set for WebApp.xlsx')
-        if os.path.exists(dataset_path):
-            raw_data = pd.read_excel(dataset_path)
-            processed_data = data_processor.process_raw_data(raw_data)
-            
-            app_data['salary_data'] = processed_data['salary_data']
-            app_data['economic_data'] = processed_data['economic_data']
-            app_data['legal_data'] = processed_data['legal_data']
-            app_data['processed'] = True
-            
-            return jsonify({
-                'success': True,
-                'message': 'BMW dataset loaded successfully',
-                'records': len(app_data['salary_data'])
-            })
-        else:
-            return jsonify({'error': 'BMW dataset file not found'}), 404
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
