@@ -807,28 +807,30 @@ export default function App() {
                 <div className="filter-count">{selectedRoles.length} selected</div>
               </div>
 
-              {/* Team Setup Multiselect */}
-              <div className="filter-group">
-                <label className="filter-label">Select Team Setup</label>
-                <div className="multiselect-actions">
-                  <button className="link-button" onClick={selectAllTeamSetups}>Select All</button>
-                  <span className="action-divider">|</span>
-                  <button className="link-button" onClick={clearAllTeamSetups}>Clear</button>
+              {/* Team Setup Multiselect — hidden when all records share one value */}
+              {summary && summary.team_setups.length > 1 && (
+                <div className="filter-group">
+                  <label className="filter-label">Select Team Setup</label>
+                  <div className="multiselect-actions">
+                    <button type="button" className="link-button" onClick={selectAllTeamSetups}>Select All</button>
+                    <span className="action-divider">|</span>
+                    <button type="button" className="link-button" onClick={clearAllTeamSetups}>Clear</button>
+                  </div>
+                  <div className="multiselect-box">
+                    {summary.team_setups.map(setup => (
+                      <label key={setup} className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          checked={selectedTeamSetups.includes(setup)}
+                          onChange={() => toggleTeamSetupSelection(setup)}
+                        />
+                        <span>{setup}</span>
+                      </label>
+                    ))}
+                  </div>
+                  <div className="filter-count">{selectedTeamSetups.length} selected</div>
                 </div>
-                <div className="multiselect-box">
-                  {summary?.team_setups.map(setup => (
-                    <label key={setup} className="checkbox-label">
-                      <input
-                        type="checkbox"
-                        checked={selectedTeamSetups.includes(setup)}
-                        onChange={() => toggleTeamSetupSelection(setup)}
-                      />
-                      <span>{setup}</span>
-                    </label>
-                  ))}
-                </div>
-                <div className="filter-count">{selectedTeamSetups.length} selected</div>
-              </div>
+              )}
             </div>
           </aside>
 

@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, send_file, send_from_directory
 from flask_cors import CORS
+from flask_compress import Compress
 import os
 import logging
 import pandas as pd
@@ -17,6 +18,7 @@ from utils import format_currency, get_vibrant_colors
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend communication
+Compress(app)  # gzip responses automatically
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
